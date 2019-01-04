@@ -1,5 +1,5 @@
 /*去除默认的margin和padding*/
-html,body,h1,h2,p,ul,li,ol,dl,dt,dd,button,input{
+html,body,h1,h2,h3,p,ul,li,ol,dl,dt,dd,button,input{
 	margin: 0;
 	padding: 0;
 }
