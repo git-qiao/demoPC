@@ -6,6 +6,7 @@ $(function () {
     var ul = $('.content-ul');
     var ind = 0;
     var contentHeight = ul.height();
+    var timer = null;
     aArr.each(function (index,val) {
         $(val).attr('index',index)
     });
@@ -36,24 +37,29 @@ $(function () {
     $(document).on("mousewheel DOMMouseScroll", function (e) {
         var delta = (e.originalEvent.wheelDelta && (e.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  // chrome & ie
             (e.originalEvent.detail && (e.originalEvent.detail > 0 ? -1 : 1));              // firefox
-        $(aArr).eq(ind).removeClass('current');
-        if (delta > 0) {
-            // 向上滚
-            ind--;
-            if(ind < 0){
-                ind=0
+        clearTimeout(timer)
+        //函数防抖 ：防止函数多次调用，优化性能，规定时间内调用函数，只有最后一次生效
+        timer = setTimeout(function () {
+            $(aArr).eq(ind).removeClass('current');
+            if (delta > 0) {
+                // 向上滚
+                ind--;
+                if(ind < 0){
+                    ind=0
+                }
+                ul.css('top',-ind*contentHeight)
+                aAni(ind)
+            } else if (delta < 0) {
+                // 向下滚
+                ind++;
+                if(ind > 4){
+                    ind=4
+                }
+                ul.css('top',-ind*contentHeight)
+                aAni(ind)
             }
-            ul.css('top',-ind*contentHeight)
-            aAni(ind)
-        } else if (delta < 0) {
-            // 向下滚
-            ind++;
-            if(ind > 4){
-                ind=4
-            }
-            ul.css('top',-ind*contentHeight)
-            aAni(ind)
-        }
+        },200)
+
     });
 
 })
