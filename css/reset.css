@@ -1,0 +1,63 @@
+/*去除默认的margin和padding*/
+html,body,h1,h2,p,ul,li,ol,dl,dt,dd,button,input{
+	margin: 0;
+	padding: 0;
+}
+/*设置全局的字体和颜色*/
+body,
+button, input, select, textarea /* for ie */{
+	font: 16px/1.5 'Microsoft Yahei','SimSun','Arial';
+	color: #333;
+}
+/*设置继承父盒子的100%，祖先元素都可以*/
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+/*去除img在父级盒子中的留白*/
+img{
+	vertical-align: middle;
+	border: 0;
+}
+/*去除列表的默认前缀样式*/
+ul,ol,li{
+	list-style: none;
+}
+/*清除浮动*/
+.clearfix:after{
+	display: block;
+	content: '';
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+.clearfix{
+	*zoom: 1;
+}
+/*去除i和em的默认倾斜*/
+i,em{
+	font-style: none;
+}
+/*去除b和strong的默认加粗*/
+b,strong{
+	font-weight: normal;
+}
+/*去掉a标签默认的下划线，设置默认的颜色*/
+a{
+	text-decoration: none;
+	color: #333;
+}
+/*设置table边框合并，单元格间距为0*/
+table{
+	/*合并边框*/
+	border-collapse: collapse;
+	/*单元格间距0 相当于table标签属性cellspacing*/
+	border-spacing: 0;
+}
+/* 使得表单元素在 ie 下能继承字体大小 */
+/* 注：optgroup 无法扶正 */
+button, input, select, textarea { font-size: 100%; }
+/*左右浮动类*/
+.fl{
+	float: right;
+}
+.fr{
+	float: right;
+}

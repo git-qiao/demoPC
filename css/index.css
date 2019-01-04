@@ -1,0 +1,59 @@
+/*大概结构部分*/
+body,html{
+    height:100%;
+    overflow: hidden;
+}
+
+/*首页顶部部分*/
+#header{
+    border-bottom: 1px solid #f0f0f0;
+}
+.header{
+    width:1100px;
+    height:80px;
+    margin:0 auto;
+}
+.header-left{
+    float: left;
+    margin-top: 10px;
+}
+.logo{
+    float: left;
+}
+.logo a{
+    display: block;
+}
+.music-icon{
+    float: left;
+    margin-top: 30px;
+}
+.nav{
+    float: right;
+    margin-top:50px;
+}
+.nav li{
+    float: left;
+    margin-left:30px;
+    position: relative;
+}
+.nav li a{
+    display: block;
+}
+.nav a.current .black{
+    width:100%;
+}
+.nav li a:hover .black{
+    width:100%;
+}
+.nav .blue{
+    color: #359900;
+}
+.nav .black{
+    color: #000;
+    position: absolute;
+    top:0;
+    width: 0;
+    overflow: hidden;
+    transition: width 1s;
+}
+/*内容主体部分*/
