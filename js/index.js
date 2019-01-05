@@ -138,6 +138,10 @@ $(function () {
 
         //定时器函数
         function setInteHandle(){
+            // 解决bug,首屏轮播切换点不在ul内时，鼠标悬停不能停止定时器的情况下，不能在动画切换的过程中进行点击
+            //本次布局中不存在这种现象，但是要注意
+            lastTime = new Date().getTime()
+
             ind++
             if (ind>=4){
                 ind = 0
