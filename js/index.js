@@ -4,6 +4,7 @@ $(function () {
     var arrow = $('.arrow');
     var aArr = $('.nav a');
     var ul = $('.content-ul');
+    var pageDot = $('.page-dot li');
     var ind = 0;
     var contentHeight = ul.height();
     var timer = null;
@@ -14,13 +15,15 @@ $(function () {
         disArrow = aArr.eq(index).offset().left+aArr.eq(index).width()/2-arrow.width()/2;
         aArr.eq(index).addClass('current');
         arrow.css('left',disArrow);
+        //pagedot的显示
+        pageDot.eq(index).addClass('current')
     }
-
     //默认显示第一个
     aAni(ind);
     //给每个a绑定点击事件
     aArr.on('click',function () {
         $(aArr).eq(ind).removeClass('current');
+        pageDot.eq(ind).removeClass('current')
         ind = $(this).attr('index');
         aAni(ind)
         ul.css('top',-ind*contentHeight)
@@ -41,6 +44,7 @@ $(function () {
         //函数防抖 ：防止函数多次调用，优化性能，规定时间内调用函数，只有最后一次生效
         timer = setTimeout(function () {
             $(aArr).eq(ind).removeClass('current');
+            pageDot.eq(ind).removeClass('current')
             if (delta > 0) {
                 // 向上滚
                 ind--;
@@ -59,7 +63,6 @@ $(function () {
                 aAni(ind)
             }
         },200)
-
     });
 
 })
