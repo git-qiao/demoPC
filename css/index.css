@@ -96,9 +96,10 @@ body,html{
 .content-ul li{
     width:100%;
     height:100%;
-    background-color: antiquewhite;
+    /*background-color: antiquewhite;*/
     position: relative;
     overflow: hidden;
+    background-size: cover;
 }
 .content-ul .section{
     position: absolute;
@@ -108,7 +109,25 @@ body,html{
     height:520px;
     margin-top:-260px;
     margin-left:-550px;
-    background-color: #359900;
+    /*background-color: #359900;*/
+    /*opacity:0.3;
+    filter: alpha(opacity=30);*/
+}
+/*每一屏幕背景图片添加*/
+.content-ul > li:nth-child(1){
+    background-image: url("../imgs/bg1.jpg");
+}
+.content-ul > li:nth-child(2){
+    background-image: url("../imgs/bg2.jpg");
+}
+.content-ul > li:nth-child(3){
+    background-image: url("../imgs/bg3.jpg");
+}
+.content-ul > li:nth-child(4){
+    background-image: url("../imgs/bg4.jpg");
+}
+.content-ul > li:nth-child(5){
+    background-image: url("../imgs/bg5.jpg");
 }
 /*页面切换指示点*/
 .page-dot{
@@ -126,7 +145,124 @@ body,html{
     border: 1px solid #fff;
     margin-bottom: 10px;
     border-radius: 50%;
+    cursor: pointer;
 }
 .page-dot .current{
-    background-color: rgba(255,255,255,.5);
+    background-color: #fff;
+}
+
+/*home屏的样式*/
+.home{
+    width:100%;
+    height:100%;
+    position: relative;
+}
+.home-carousel{
+    width:100%;
+    height:100%;
+    /*background-color: aliceblue;*/
+    position: relative;
+
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: opacity 1s, transform 1s;
+}
+.home-carousel li{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: #fff;
+    text-align: center;
+    font-size: 100px;
+    line-height: 520px;
+    visibility: hidden;
+}
+.home-carousel li:nth-child(1){
+    background-color: brown;
+}
+.home-carousel li:nth-child(2){
+    background-color: cadetblue;
+}
+.home-carousel li:nth-child(3){
+    background-color: darkolivegreen;
+}
+.home-carousel li:nth-child(4){
+    background-color: indigo;
+}
+.home-dot{
+    position: absolute;
+    bottom:10px;
+    left:50%;
+    margin-left:-40px;
+}
+.home-dot li{
+    width:15px;
+    height:15px;
+    background-color: #fff;
+    opacity:0.5;
+    float: left;
+    border-radius: 50%;
+    margin-left:5px;
+    cursor: pointer;
+}
+.home-dot .current{
+    opacity:1;
+}
+.home-carousel li.current{
+    visibility: visible;
+}
+/*
+  点击左边的小圆点时：
+    左边：向左位移，旋转30deg，隐藏到显示
+    右边：向右位置，旋转-30deg，显示到隐藏
+ */
+@keyframes leftShow{
+    0%{visibility: hidden;transform: translateZ(-200px);}
+    50%{transform: translateX(-40%) rotateY(30deg) scale(.8)}
+    100%{visibility: visible}
+}
+@keyframes rightHide{
+    0%{visibility: visible}
+    50%{transform: translateX(40%) rotateY(-30deg) scale(.8)}
+    100%{transform: translateZ(-200px);visibility: hidden;}
+}
+.home-carousel li.leftShow{
+    visibility: visible;
+    -webkit-animation:;
+    -o-animation:;
+    animation:leftShow 1.5s linear;
+}
+.home-carousel li.rightHide{
+    visibility: hidden;
+    -webkit-animation:;
+    -o-animation:;
+    animation:rightHide 1.5s linear;
+}
+/*
+  点击右边的小圆点时：
+    左边：向左位移，旋转30deg，显示到隐藏
+    右边：向右位置，旋转-30deg，隐藏到显示
+ */
+@keyframes leftHide {
+    0%{visibility: visible}
+    50%{transform: translateX(-40%) rotateY(30deg) scale(.8)}
+    100%{transform: translateZ(-200px);visibility: hidden;}
+}
+
+@keyframes rightShow {
+    0%{visibility: hidden;transform: translateZ(-200px);}
+    50%{transform: translateX(40%) rotateY(-30deg) scale(.8)}
+    100%{visibility: visible}
+}
+.home-carousel li.rightShow{
+    visibility: visible;
+    -webkit-animation:rightShow 1.5s linear;
+    -o-animation:rightShow 1.5s linear;
+    animation:rightShow 1.5s linear;
+}
+.home-carousel li.leftHide{
+    visibility: hidden;
+    -webkit-animation:leftHide 1.5s linear;
+    -o-animation:leftHide 1.5s linear;
+    animation:leftHide 1.5s linear;
 }
