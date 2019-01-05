@@ -30,6 +30,8 @@ body,html{
 .music-icon{
     float: left;
     margin-top: 30px;
+    margin-left: 10px;
+    cursor: pointer;
 }
 .nav{
     float: right;
@@ -228,14 +230,14 @@ body,html{
 }
 .home-carousel li.leftShow{
     visibility: visible;
-    -webkit-animation:;
-    -o-animation:;
+    -webkit-animation:leftShow 1.5s linear;
+    -o-animation:leftShow 1.5s linear;
     animation:leftShow 1.5s linear;
 }
 .home-carousel li.rightHide{
     visibility: hidden;
-    -webkit-animation:;
-    -o-animation:;
+    -webkit-animation:rightHide 1.5s linear;
+    -o-animation:rightHide 1.5s linear;
     animation:rightHide 1.5s linear;
 }
 /*

@@ -157,6 +157,28 @@ $(function () {
         }
         
     }
-    homeScreen()
+    homeScreen();
+
+    // 音乐播放
+    function musicPlay(){
+        var musicDom = $('.music-icon audio');
+        var musicParDom = $('.music-icon');
+        // alert(musicDom[0].autoplay)
+        musicParDom[0].flag=1
+        musicParDom.click(function () {
+            if (musicParDom[0].flag == 1){
+                musicDom[0].play();
+                musicParDom[0].flag = 2;
+                this.title = '点击暂停';
+            }else{
+                this.title = '点击播放';
+                musicParDom[0].flag = 1;
+                musicDom[0].pause();
+            }
+        })
+    }
+    musicPlay()
+    
+
 
 })

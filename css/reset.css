@@ -33,7 +33,7 @@ ul,ol,li{
 }
 /*去除i和em的默认倾斜*/
 i,em{
-	font-style: none;
+	font-style: normal;
 }
 /*去除b和strong的默认加粗*/
 b,strong{
