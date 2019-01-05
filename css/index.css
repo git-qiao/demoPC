@@ -95,7 +95,7 @@ body,html{
     top:0;
     transition: top 1s;
 }
-.content-ul li{
+.content-ul > li{
     width:100%;
     height:100%;
     /*background-color: antiquewhite;*/
@@ -267,4 +267,91 @@ body,html{
     -webkit-animation:leftHide 1.5s linear;
     -o-animation:leftHide 1.5s linear;
     animation:leftHide 1.5s linear;
+}
+
+/*course屏的样式*/
+.content-ul .course{
+    /*background-color: #333333;*/
+    position: relative;
+}
+.screen-title{
+    color: orangered;
+    font-size: 90px;
+    line-height: 0.8;
+    margin-top:30px;
+}
+.course h3{
+    width:500px;
+}
+.course-p{
+    color: #fff;
+    width: 380px;
+    height:300px;
+    margin-top:75px;
+    margin-left:10px;+
+    /*background-color: indigo;*/
+}
+.course-item{
+    position: absolute;
+    width:480px;
+    height:400px;
+    color: #fff;
+    top:20px;
+    right:20px;
+    /*border: 1px solid #000;*/
+}
+.course-item li{
+    width: 120px;
+    height:130px;
+    float: left;
+    /*border: 1px solid #000;*/
+    position: relative;
+}
+.course-item .forward,.course-item .back{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    transition: transform 1s linear;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.course-item .forward{
+    text-align: center;
+    line-height: 130px;
+}
+.course-item .forward img{
+    width: 70%;
+}
+.course-item .back{
+    background-color: darkolivegreen;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    padding:10px;
+}
+.course li:hover .forward{
+    transform: rotateY(180deg);
+}
+.course li:hover .back{
+    transform: rotateY(360deg);
+}
+.course .plus-add{
+    position: absolute;
+    width:600px;
+    height:400px;
+    color: #fff;
+    top:15px;
+    right:0px;
+}
+.course .plus-add li{
+    width: 10px;
+    height: 680px;
+    background: url("../imgs/plus_row.png") no-repeat;
+    margin-left:106px;
+    float: left;
+}
+.plus-add li{
+
 }

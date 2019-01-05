@@ -8,7 +8,7 @@ $(function () {
         var aArr = $('.nav a');
         var ul = $('.content-ul');
         var pageDot = $('.page-dot li');
-        var ind = 0;
+        var ind = 1;  //修改它改变显示第几屏幕
         var contentHeight = ul.height();
         var timer = null;
         aArr.each(function (index,val) {
@@ -23,6 +23,8 @@ $(function () {
             arrow.css('left',disArrow);
             //pagedot的显示
             pageDot.eq(index).addClass('current')
+            //屏幕的滚动
+            ul.css('top',-index*contentHeight)
         }
         //默认显示第一个
         aAni(ind);
@@ -32,7 +34,6 @@ $(function () {
             pageDot.eq(ind).removeClass('current');
             ind = $(this).attr('index');
             aAni(ind)
-            ul.css('top',-ind*contentHeight)
         });
         // 给每个page指示点添加事件
         pageDot.on('click',function () {
@@ -40,14 +41,11 @@ $(function () {
             pageDot.eq(ind).removeClass('current');
             ind = $(this).attr('index');
             aAni(ind);
-            ul.css('top',-ind*contentHeight)
         })
         //窗口大小改变时
         $(window).resize(function () {
-            aAni(ind)
-
             contentHeight = ul.height()
-            ul.css('top',-ind*contentHeight)
+            aAni(ind)
         });
 
         //测试JQ绑定鼠标滚轮事件
@@ -66,7 +64,6 @@ $(function () {
                     if(ind < 0){
                         ind=0
                     }
-                    ul.css('top',-ind*contentHeight)
                     aAni(ind)
                 } else if (delta < 0) {
                     // 向下滚
@@ -74,7 +71,6 @@ $(function () {
                     if(ind > 4){
                         ind=4
                     }
-                    ul.css('top',-ind*contentHeight)
                     aAni(ind)
                 }
             },200)
@@ -178,7 +174,8 @@ $(function () {
         })
     }
     musicPlay()
-    
+
+    //
 
 
 })
