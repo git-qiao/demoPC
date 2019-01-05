@@ -8,7 +8,7 @@ $(function () {
         var aArr = $('.nav a');
         var ul = $('.content-ul');
         var pageDot = $('.page-dot li');
-        var ind = 1;  //修改它改变显示第几屏幕
+        var ind = 4;  //修改它改变显示第几屏幕
         var contentHeight = ul.height();
         var timer = null;
         aArr.each(function (index,val) {

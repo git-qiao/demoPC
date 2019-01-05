@@ -153,7 +153,7 @@ body,html{
     background-color: #fff;
 }
 
-/*home屏的样式*/
+/*第一屏home样式*/
 .home{
     width:100%;
     height:100%;
@@ -269,25 +269,26 @@ body,html{
     animation:leftHide 1.5s linear;
 }
 
-/*course屏的样式*/
+/*第二屏course样式*/
 .content-ul .course{
     /*background-color: #333333;*/
     position: relative;
 }
 .screen-title{
     color: orangered;
-    font-size: 90px;
+    font-size: 70px;
     line-height: 0.8;
     margin-top:30px;
 }
 .course h3{
     width:500px;
 }
-.course-p{
+.course-p,.about-p{
+    font-size: 16px;
     color: #fff;
     width: 380px;
     height:300px;
-    margin-top:75px;
+    margin-top:60px;
     margin-left:10px;+
     /*background-color: indigo;*/
 }
@@ -352,6 +353,193 @@ body,html{
     margin-left:106px;
     float: left;
 }
-.plus-add li{
+/*第三屏works样式*/
+.works{
+    /*background-color: indigo;*/
+}
+.works-item{
+    position: absolute;
+    bottom:50px;
+    left:0;
+    /*border: 1px solid #000;*/
+}
+.works-item li{
+    float: left;
+    margin-left:6px;
+    position: relative;
+}
+.works-item li:hover .mask{
+    opacity:0.7;
+}
+.works-item li:hover p{
+    opacity:1;
+}
+.works-item li:hover .check-icon{
+    opacity:1;
+    background-position-y: -34px;
+}
+.works-item li:hover img{
+    transform: rotate(35deg) scale(1.3) ;
+}
+.works-robot{
+    position: absolute;
+    right: 60px;
+    bottom: 170px;
+    animation: robotMove 5s infinite linear;
+}
+.works .works-title{
+    margin-top:40px;
+}
+.works-item .content,.works-item .mask{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:10px;
+}
+.works-item li{
+    overflow: hidden;
+}
+.works-item img{
+    transition: transform 1s;
+i
+}
+.works-item .mask{
+    background-color: black;
+    opacity:0;
+    transition: opacity 1s;
+}
+.works-item .content p{
+    color: #fff;
+    opacity:0;
+    transition: opacity 1s;
+}
+.check-icon{
+    width: 32px;
+    height:34px;
+    background-image: url("../imgs/zoomico.png");
+    background-position-y:0;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    opacity:0;
+    transition: opacity,background-position-y 1s;
+}
+/*机器人动画*/
+@keyframes robotMove{
+    0%{transform: translateX(0px) rotateY(0deg)}
+    49.9%{transform: translateX(-500px) rotateY(0deg)}
+    50%{transform: translateX(-500px) rotateY(180deg)}
+    100%{transform: translateX(0px) rotateY(180deg)}
+}
+/*第四屏about样式*/
+.about{
+    /*background-color: darkolivegreen;*/
+}
+.about .about-title{
+    margin-left: 8px;
+}
+.about-p{
 
+}
+.about-img-box{
+    width:520px;
+    height:460px;
+    /*background-color: #333333;*/
+    position: absolute;
+    right:0;
+    top:30px;
+}
+.about-img{
+    width:260px;
+    height:200px;
+    border: 6px solid rgba(200,200,200,.3);
+    border-radius: 10px;
+    position: relative;
+}
+.about-img.one{
+    margin-left:130px;
+}
+.about-img.two{
+    margin-top:30px;
+}
+.about-img ul{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+}
+.about-img li{
+    width:50%;
+    height:50%;
+    background-color: indigo;
+    float: left;
+    overflow: hidden;
+    background: url("../imgs/about3.jpg") no-repeat;
+    transition: background-position 1s;
+}
+.about-img:hover li:nth-child(1){
+    background-position: 0 -100%;
+}
+.about-img:hover li:nth-child(3){
+    background-position: -100% 0;
+}.about-img:hover li:nth-child(2){
+    background-position: 201% 0;
+}
+.about-img:hover li:nth-child(4){
+    background-position: 100% 200%;
+}
+.about-img.two li{
+    background: url("../imgs/about4.jpg") no-repeat;
+}
+.about-img li:nth-child(0){
+    background-position: 0 0;
+}
+.about-img li:nth-child(2){
+    background-position: 100% 0;
+}.about-img li:nth-child(3){
+    background-position: 0 100%;
+}
+.about-img li:nth-child(4){
+    background-position: 100% 100%;
+}
+/*第五屏team样式*/
+.team{
+    /*background-color: indigo;*/
+}
+.team-p{
+    width:500px;
+    color: #fff;
+    margin-left:50%;
+    margin-top:-116px;
+}
+.team-persons{
+    width:944px;
+    height:448px;
+    /*background-color: orangered;*/
+    position: absolute;
+    bottom:-140px;
+    left:84px;
+}
+.team-persons li{
+    float: left;
+    width:25%;
+    height:100%;
+    background: url("../imgs/team.png") no-repeat;
+}
+.team-persons li:nth-child(1){
+    background-position: -1% 0;
+}.team-persons li:nth-child(2){
+    background-position: 32% 0;
+}
+.team-persons li:nth-child(3){
+    background-position: 68% 0;
+}
+.team-persons li:nth-child(4){
+    background-position: 100% 0;
 }
