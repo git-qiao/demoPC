@@ -158,6 +158,8 @@ body,html{
     width:100%;
     height:100%;
     position: relative;
+
+    transition: transform 1s,opacity 1s;
 }
 .home-carousel{
     width:100%;
@@ -167,7 +169,7 @@ body,html{
 
     transform-style: preserve-3d;
     perspective: 1000px;
-    transition: opacity 1s, transform 1s;
+    transition: opacity 1.5s, transform 1.5s;
 }
 .home-carousel li{
     width: 100%;
@@ -279,11 +281,16 @@ body,html{
     font-size: 70px;
     line-height: 0.8;
     margin-top:30px;
+    transition: transform 1s;
 }
 .course h3{
+    position: relative;
     width:500px;
+    z-index: 3;
 }
 .course-p,.about-p{
+    position: relative;
+    z-index: 3;
     font-size: 16px;
     color: #fff;
     width: 380px;
@@ -353,6 +360,24 @@ body,html{
     margin-left:106px;
     float: left;
 }
+.course .airplane{
+    position: absolute;
+    transition: transform 1s;
+    z-index: 0;
+}
+.course .airplane:nth-of-type(1){
+    top:20px;
+    left:-200px;
+}
+.course .airplane:nth-of-type(2){
+    bottom:-80px;
+    left:200px;
+}
+.course .airplane:nth-of-type(3){
+    top:-150px;
+    left:470px;
+}
+
 /*第三屏works样式*/
 .works{
     /*background-color: indigo;*/
@@ -362,6 +387,7 @@ body,html{
     bottom:50px;
     left:0;
     /*border: 1px solid #000;*/
+    z-index: 2;
 }
 .works-item li{
     float: left;
@@ -386,9 +412,12 @@ body,html{
     right: 60px;
     bottom: 170px;
     animation: robotMove 5s infinite linear;
+    z-index: 2;
 }
 .works .works-title{
     margin-top:40px;
+    position: relative;
+    z-index: 2;
 }
 .works-item .content,.works-item .mask{
     position: absolute;
@@ -403,7 +432,6 @@ body,html{
 }
 .works-item img{
     transition: transform 1s;
-i
 }
 .works-item .mask{
     background-color: black;
@@ -436,6 +464,23 @@ i
     50%{transform: translateX(-500px) rotateY(180deg)}
     100%{transform: translateX(0px) rotateY(180deg)}
 }
+.pencil{
+    position: absolute;
+    transition: transform 1s;
+    z-index: 0;
+}
+.works > .pencil:nth-of-type(2){
+    top:30px;
+    left:-30px;
+}
+.works > .pencil:nth-of-type(3){
+    top:0px;
+    left:500px;
+}
+.works > .pencil:nth-of-type(4){
+    top:260px;
+    left:350px;
+}
 /*第四屏about样式*/
 .about{
     /*background-color: darkolivegreen;*/
@@ -460,6 +505,7 @@ i
     border: 6px solid rgba(200,200,200,.3);
     border-radius: 10px;
     position: relative;
+    transition: transform 1s;
 }
 .about-img.one{
     margin-left:130px;
@@ -517,6 +563,7 @@ i
     color: #fff;
     margin-left:50%;
     margin-top:-116px;
+    transition: transform 1s;
 }
 .team-persons{
     width:944px;
@@ -542,4 +589,12 @@ i
 }
 .team-persons li:nth-child(4){
     background-position: 100% 0;
+}
+.team-persons .cvs{
+    position: absolute;
+    top:0;
+    /*left:0;*/
+    /*background-color: black;*/
+    width: 25%;
+    height:100%;
 }
