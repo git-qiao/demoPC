@@ -1,11 +1,9 @@
 //首页JS入口函数
 $(function () {
-
-
     //出场入场动画
     //首屏元素
     var aniHome = $('.home');
-    aniHome.css('transform','translateY(-50%)').css('opacity','0.5')
+    // aniHome.css('transform','translateY(-50%)').css('opacity','0.5')
     //第二屏
     var airplane = $('.airplane');
     //第三屏
@@ -44,7 +42,7 @@ $(function () {
             },
             aniOut: function () {
                 pencil.eq(0).css('transform','translate(10%,20%)')
-                pencil.eq(1).css('transform','translate(-10%。30%)')
+                pencil.eq(1).css('transform','translate(-10%,30%)')
                 pencil.eq(2).css('transform','translate(20%,20%)')
             }
         },
@@ -70,8 +68,11 @@ $(function () {
             }
         }
     ];
-    //入场动画初始化
-    aniArr.forEach(function (val) {
+
+    //出场动画初始化 保证第一次有入场动画
+    //默认所有屏都做出场动画
+    aniArr.forEach(function (val,i) {
+        if(i==0)return;  //除了第一屏以外  刚载入第一屏不需要动画
         val.aniOut()
     })
 
@@ -96,14 +97,16 @@ $(function () {
             aArr.eq(index).addClass('current');
             arrow.css('left',disArrow);
             //pagedot的显示
-            pageDot.eq(index).addClass('current')
+            pageDot.eq(index).addClass('current');
             //屏幕的滚动
-            ul.css('top',-index*contentHeight)
+            ul.css('top',-index*contentHeight);
             //入场动画
             aniArr[index].aniIn()
         }
         //默认显示第ind个
         aAni(ind);
+        //这里需要单独给第一屏做出场动画
+        // aniArr[0].aniOut()
         //给每个nav上的a绑定点击事件
         aArr.on('click',function () {
             //出场动画
@@ -353,4 +356,51 @@ $(function () {
     }
     teamHabdle()
 
+    //开机加载动画
+        //获取开机动画所需的元素
+    function loadingAni(){
+        var $loading = $('.loading');
+        var $loadingTop = $('.loading-top');
+        var $loadingBtm = $('.loading-bottom');
+        var $loadingLine = $('.loading-line');
+        //等待所有图片加载完成，加载条随着，加载的数量，逐渐变为100%
+        //浏览器机制，图片是会自动缓存的，只要页面存在该图片就不会再次请求
+        var imgArr=['bg1.jpg','bg2.jpg','bg3.jpg','bg4.jpg','bg5.jpg','about1.jpg','about2.jpg','about3.jpg','about4.jpg','worksimg1.jpg','worksimg2.jpg','worksimg3.jpg','worksimg4.jpg','team.png','greenLine.png'];
+        var length = imgArr.length;
+        var num = 0;
+        var wid = 0;
+        imgArr.forEach(function (val,i) {
+            //不论是页面中，还是这里，只要能引用，就代表img已经加载完成
+            //这里可以看成是模拟
+            var img = new Image();
+            img.src = './imgs/'+val;
+            img.onload = function () {
+                num++;
+                //全部加载完成后，宽高设置为0,隐藏进度条
+                if (num == length){
+                    $loadingTop.height(0)
+                    $loadingBtm.height(0)
+                    $loadingLine.hide()
+                    //当动画执行完毕
+                    $loading.on('transitionend',function () {
+                        //移除开机动画的节点
+                        $loading.remove()
+                        //第一屏入场动画
+                        aniArr[0].aniIn();
+                    })
+
+                }
+                wid = num/length * 100 + '%';
+                $loadingLine.width(wid);
+
+            }
+
+        })
+    }
+    loadingAni()//函数调用结束后，会释放函数中的变量
+
 })
+
+
+
+
