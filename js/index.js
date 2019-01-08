@@ -315,7 +315,7 @@ $(function () {
                 var x,y,c_r,opacity=1,arr=[],scal,deg=0,newX,newY;
                 var ctx = cvs.getContext('2d');
                 // 生成圆控制数量
-                conTimer = setInterval(function(){
+                conTimer1 = setInterval(function(){
                     x = Math.round(Math.random()*cvs.width);
                     y = cvs.height;
                     c_r = Math.round(Math.random()*10 + 4);
@@ -331,7 +331,7 @@ $(function () {
 
                 },120);
                 //画出圆
-                conTimer = setInterval(function(){
+                conTimer2 = setInterval(function(){
                     ctx.clearRect(0,0,cvs.width,cvs.height);
                     arr.forEach(function(val,i){
                         val.deg+=5;
